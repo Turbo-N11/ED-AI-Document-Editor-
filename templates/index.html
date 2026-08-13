@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6ead6" id="themeColorMeta">
+  <meta name="application-name" content="ED — Document Editor">
+  <meta name="apple-mobile-web-app-title" content="ED — Document Editor">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/assets/ed-logo-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/static/assets/ed-logo-icon.png">
+  <link rel="apple-touch-icon" href="/static/assets/ed-logo-icon.png">
+  <title>ED — AI Document Workspace</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo-wrap">
+        <img class="brand-logo" src="/static/assets/ed-logo-horizontal.png" alt="ED — Document Editor">
+      </div>
+      <div class="brand-copy"><strong>Document Editor</strong><span>Professional document workspace</span></div>
+    </div>
+
+    <div class="upload-card" id="dropzone">
+      <input type="file" id="fileInput" accept=".docx,.pdf,.png,.jpg,.jpeg,.webp,.bmp" multiple hidden>
+      <div class="upload-icon">↑</div>
+      <strong>Drop documents here</strong>
+      <span>Upload multiple DOCX files at once</span>
+      <button class="secondary" id="chooseBtn" type="button">Choose files</button>
+      <small>DOCX, PDF or images · 50 MB each · 250 MB per upload</small>
+    </div>
+
+    <div class="sidebar-section files-section">
+      <div class="section-head">
+        <div class="section-label">Workspace</div>
+        <span class="count-badge" id="fileCount">0</span>
+      </div>
+      <div class="document-list" id="documentList">
+        <div class="list-empty">No documents loaded yet.</div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="section-label">Tools</div>
+      <button class="side-action" data-action="undo"><span>Undo</span><kbd>Ctrl Z</kbd></button>
+      <button class="side-action" data-action="redo"><span>Redo</span><kbd>Ctrl Shift Z</kbd></button>
+      <button class="side-action" data-action="summarize"><span>Summarize</span></button>
+      <button class="side-action" data-action="inspect"><span>Inspect document</span></button>
+      <button class="side-action" data-action="improve"><span>Improve formatting</span></button>
+    </div>
+
+    <div class="sidebar-footer">
+      <span class="status-dot"></span><span id="statusText">Ready</span>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="title-group">
+        <div class="eyebrow">ED · DOCUMENT WORKSPACE</div>
+        <h1 id="workspaceTitle">Your documents</h1>
+        <div class="active-meta" id="activeMeta">No active document</div>
+      </div>
+      <div class="top-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme">
+          <span class="theme-icon" id="themeIcon">☾</span>
+          <span class="theme-label" id="themeLabel">Dark mode</span>
+        </button>
+        <button class="ghost" id="resetBtn">Reset</button>
+        <button class="primary" id="doneBtn">Finish &amp; Download</button>
+      </div>
+    </header>
+
+    <section class="workspace">
+      <section class="document-panel">
+        <div class="preview-toolbar">
+          <div class="preview-title"><span class="live-dot"></span> Live preview</div>
+          <div class="preview-stats" id="previewStats">—</div>
+        </div>
+        <div class="document-preview" id="preview">
+          <div class="document-empty" id="documentEmpty">
+            <div class="empty-icon"><img src="/static/assets/ed-logo-icon.png" alt="ED"></div>
+            <strong>Your working document appears here</strong>
+            <span>Upload one or more Word documents, select a file, then edit it with commands or natural language.</span>
+          </div>
+          <div class="document-frame-wrap" id="pdfViewer" hidden>
+            <iframe
+              id="documentFrame"
+              class="document-frame"
+              title="LibreOffice document preview"
+              loading="eager"
+              src="about:blank">
+            </iframe>
+          </div>
+        </div>
+      </section>
+
+      <aside class="chat-panel">
+        <div class="chat-head">
+          <div>
+            <strong>AI assistant</strong>
+            <span>Commands and natural-language editing</span>
+          </div>
+          <span class="context-badge">ACTIVE DOCUMENT</span>
+        </div>
+
+        <div class="command-strip">
+          <span>Batch editing</span>
+          <code>change "Load" to "Road" --all</code>
+          <button id="allHint" type="button">Use --all</button>
+        </div>
+
+        <div class="messages" id="messages">
+          <div class="welcome">
+            <div class="welcome-mark"><img src="/static/assets/ed-logo-icon.png" alt="ED"></div>
+            <h2>Work across your documents</h2>
+            <p>Upload multiple files, choose which one to view, or add <code>--all</code> to a supported editing command to apply it everywhere.</p>
+            <div class="suggestions">
+              <button>What is this document about?</button>
+              <button>Make all headings bold and dark blue</button>
+              <button>Improve the overall formatting and spacing</button>
+              <button>change "Load" to "Road" --all</button>
+            </div>
+          </div>
+        </div>
+
+        <form class="composer" id="chatForm">
+          <textarea id="messageInput" rows="3" placeholder="Describe an edit or enter a command…"></textarea>
+          <div class="composer-foot">
+            <span><kbd>Enter</kbd> send · <kbd>Shift + Enter</kbd> new line</span>
+            <button class="primary send" type="submit">Send</button>
+          </div>
+        </form>
+      </aside>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>
