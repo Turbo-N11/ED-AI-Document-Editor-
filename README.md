@@ -1,6 +1,6 @@
-# <img width="1722" height="997" alt="image" src="https://github.com/user-attachments/assets/2914aae0-2c00-4bf7-98d5-0955f43efc28" /><p align="center">
-#  <img src="assets/ed-logo-horizontal.png" alt="ED — AI Document Editor" width="520">
-# </p>
+<p align="center">
+  <img src="assets/ed-logo-horizontal.png" alt="ED — AI Document Editor" width="520">
+</p>
 
 <p align="center">
   <strong>AI-powered document workspace for editing, reviewing, and batch-processing DOCX files.</strong>
@@ -86,16 +86,17 @@ ED uses LibreOffice to generate a PDF preview of the current DOCX document. The 
 ## Screenshots
 
 <p align="center">
-  <img src="assets/end-ui.png" alt="ED document workspace Example 1" width="100%">
+  <img src="assets/end-ui.png" alt="ED document workspace preview" width="100%">
 </p>
 
 <p align="center">
-  <img src="assets/end-ui.png" alt="ED document workspace preview 2" width="100%">
+  <img src="assets/end-ui2.png" alt="ED document workspace preview" width="100%">
 </p>
 
 <p align="center">
-  <img src="assets/end-ui.png" alt="ED document workspace preview 3" width="100%">
+  <img src="assets/end-ui3.png" alt="ED document workspace preview" width="100%">
 </p>
+
 
 ## Quick Start
 
