@@ -86,7 +86,7 @@ ED uses LibreOffice to generate a PDF preview of the current DOCX document. The 
 ## Screenshots
 
 <p align="center">
-  <img src="assets/ed-ui-preview.png" alt="ED document workspace preview" width="100%">
+  <img src="assets/ed-ui.png" alt="ED document workspace preview" width="100%">
 </p>
 
 ## Quick Start
