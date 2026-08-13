@@ -1,6 +1,6 @@
-<img width="1722" height="997" alt="image" src="https://github.com/user-attachments/assets/2914aae0-2c00-4bf7-98d5-0955f43efc28" /><p align="center">
-  <img src="assets/ed-logo-horizontal.png" alt="ED — AI Document Editor" width="520">
-</p>
+# <img width="1722" height="997" alt="image" src="https://github.com/user-attachments/assets/2914aae0-2c00-4bf7-98d5-0955f43efc28" /><p align="center">
+#  <img src="assets/ed-logo-horizontal.png" alt="ED — AI Document Editor" width="520">
+# </p>
 
 <p align="center">
   <strong>AI-powered document workspace for editing, reviewing, and batch-processing DOCX files.</strong>
