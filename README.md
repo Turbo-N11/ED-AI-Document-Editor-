@@ -1,4 +1,4 @@
-<p align="center">
+<img width="1722" height="997" alt="image" src="https://github.com/user-attachments/assets/2914aae0-2c00-4bf7-98d5-0955f43efc28" /><p align="center">
   <img src="assets/ed-logo-horizontal.png" alt="ED — AI Document Editor" width="520">
 </p>
 
@@ -86,7 +86,15 @@ ED uses LibreOffice to generate a PDF preview of the current DOCX document. The 
 ## Screenshots
 
 <p align="center">
-  <img src="assets/ed-ui.png" alt="ED document workspace preview" width="100%">
+  <img src="assets/end-ui.png" alt="ED document workspace Example 1" width="100%">
+</p>
+
+<p align="center">
+  <img src="assets/end-ui.png" alt="ED document workspace preview 2" width="100%">
+</p>
+
+<p align="center">
+  <img src="assets/end-ui.png" alt="ED document workspace preview 3" width="100%">
 </p>
 
 ## Quick Start
