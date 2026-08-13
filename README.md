@@ -189,6 +189,104 @@ http://127.0.0.1:5000
 
 The command parser is intentionally conservative about document scope. If a command does not contain `--all`, it should operate on the active document rather than the entire workspace.
 
+### Complete command reference
+
+```text
+Document commands:
+  list docs                                      list .docx files
+  open <file.docx>                               load a document
+  load <file.docx>                               load/switch document
+  current                                        show active document
+
+  inspect                                        analyze document structure (headings, tables, images, headers/footers)
+  show                                           show paragraphs + identify headings
+  show --all                                     show full document, paragraph indexes + tables
+  show tables                                    display table grid layout & cell content
+
+  edit table <T> row <R> col <C> : <text>        edit a specific table cell
+  table edit : <natural language instruction>    AI edit tables, e.g. turn all "Low" to "High"
+  images                                         index/name embedded images with AI
+  replace image <N|imgN> with <file|imgN>        swap image preserving exact drawing formatting
+
+  doc edit : <multiple instructions>             apply all requested formatting/edit operations
+                                                 e.g. doc edit : change all headers to Arial green and highlight every Name light blue
+
+  reconstruct <doc.docx/image.png>               rebuild document/image while matching visual formatting
+  reconstruct --verify <doc.docx/image.png>      rebuild document and run verification quality check report
+
+  search "notice period"                         search whole sentences
+  ask: Who is the landlord?                      ask about loaded document
+  <plain question>                               with a document loaded, defaults to document Q&A
+  -- <question>                                   ask general AI knowledge outside document context
+  summarize                                      summarize the whole document
+
+  change "OLD" to "NEW"                          exact global replacement
+  replace "OLD" with "NEW"                       exact global replacement
+
+  rewrite paragraph N in simple language
+  rewrite paragraph N: <instruction>             custom AI rewrite
+  rewrite paragraph 2 - 3: <instruction>         rewrite a paragraph range
+
+  compare <doc1.docx> <doc2.docx>               compare documents
+  improvements                                   understand document + numbered contextual suggestions
+  improvements --apply                           apply all applicable suggestions
+  check [--quick] [--jurisdiction <place>]      verify legal document against official web sources
+  improve format                                 improve overall DOCX formatting
+  format --Template_name [instructions]          apply ./templates/Template_name.docx formatting
+  list templates                                 list templates
+  autosave                                       turn automatic change snapshots ON
+  autosave off                                   turn automatic change snapshots OFF
+  undo                                           undo the last document change
+  redo                                           redo the last undone change
+
+  reset                                          restore original loaded document
+  save                                           save current document
+  save as <file.docx>                            save under a new name
+
+  help                                           show this list
+  exit                                           quit
+```
+
+### Batch operations with `--all`
+
+Append `--all` to a supported command when you want the operation applied across every loaded document.
+
+```text
+change "OLD" to "NEW" --all
+replace "OLD" with "NEW" --all
+```
+
+It can also be placed at the beginning:
+
+```text
+--all change "OLD" to "NEW"
+```
+
+Without `--all`, document-editing commands operate on the active document.
+
+### User-defined AI commands
+
+ED also supports natural-language, user-defined AI commands when an AI provider is configured. Describe the operation you want in plain language and ED can use the document context to perform the requested supported editing operation.
+
+Examples:
+
+```text
+change all headers to Arial and make them green
+
+highlight every occurrence of "Name" in light blue
+
+rewrite paragraph 3 in simple language
+
+make all table values containing "Low" read "High"
+```
+
+Use `--all` when the same user-defined AI operation should be applied across all loaded documents:
+
+```text
+--all change all headers to Arial and make them green
+```
+
+
 ## Multiple-document workflow
 
 A typical batch workflow looks like this:
